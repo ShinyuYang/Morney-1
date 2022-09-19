@@ -3,6 +3,12 @@
   <NumberPad @update:value="onUpdateAmount" @submit="saveRecord" />
   <Tabs :data-source="recordTypeList"
         :value.sync="record.type"/>
+  <Notes field-name="日期"
+         type="date"
+         placeholder="输入日期"
+         :value.sync="record.createdAt"
+        />
+<!--  自选时间-->
   <Notes field-name="备注"
          placeholder="点击填写备注~"
          :value="record.notes"
@@ -41,6 +47,7 @@ recordTypeList = recordTypeList;
         notes: '',
         type: '-',
         amount: 0,
+        createdAt: new Date().toISOString()
       };
 
       created(){
